@@ -9,8 +9,8 @@ export const Navbar = () => {
                 <GiSittingDog className="text-white text-3xl"/>
             </div>
             <div className="space-x-3 md:space-x-6 flex">
-               <NavbarAction primary>Quero adotar</NavbarAction>
-               <NavbarAction>Quero doar</NavbarAction>
+               {/* <NavbarAction primary>Quero adotar</NavbarAction> */}
+               <NavbarAction primary>Quero doar um Pet</NavbarAction>
             </div>
         </div>
     )

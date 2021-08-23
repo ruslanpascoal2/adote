@@ -1,0 +1,87 @@
+$border-color:#4485e0
+;
+
+.autocomplete {
+    position: relative;
+
+    .search-icon {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        font-size: 1.5rem;
+    }
+    .submit-btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 50px;
+        background: #10b981;
+        color: white;
+        font-weight: 500;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+}
+.autocomplete-input {
+    padding: 0.75rem;
+    padding-left: 15%;
+    padding-right: 4rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    width: 500px;
+    max-width: 50vw;
+    border-radius: 1rem;
+    &:focus {
+        box-shadow: 0px 0px 0px 5px $border-color;
+        outline: none;
+    }
+}
+
+.autocomplete-overlay {
+    display: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    background: white;
+    height: 200px;
+    width: 100%;
+    margin-top: 2rem;
+    box-shadow: 0px 0px 0px 5px $border-color;
+    position: absolute;
+    animation-duration: 0.3s;
+
+    &.overlay-in {
+        display: flex;
+        animation-name: overlayIn;
+    }
+    &.overlay-out {
+        display: none;
+        height: 0px;
+        box-shadow: none;
+    }
+
+    .overlay-content {
+        overflow: auto;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        width: 100%;
+        li {
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            &:hover {
+                background: rgba(236, 236, 236, 0.5);
+            }
+        }
+    }
+}
+
+@keyframes overlayIn {
+    0% {
+        height: 0px;
+    }
+    100% {
+        height: 200px;
+    }
+}
