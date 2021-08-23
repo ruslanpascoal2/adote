@@ -7,7 +7,6 @@ export const NavbarAction = styled.button`
   color: #fff;
   text-align: center;
   padding: .75rem 1rem;
-  min-width: 120px;
   border-radius: 1rem;
   cursor: pointer;
   transition: all .3s;
