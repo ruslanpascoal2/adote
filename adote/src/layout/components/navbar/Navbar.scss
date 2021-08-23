@@ -1,0 +1,23 @@
+@import "../../../scss/_variables.scss";
+
+.navbar{
+    height: 100px;
+    width: 100vw;
+    background: $indigo;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    
+    .icon{
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: white;
+    }
+}
