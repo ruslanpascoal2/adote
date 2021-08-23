@@ -3,8 +3,11 @@ import { Navbar } from "./layout/components/navbar/Navbar"
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Navbar />
+      <div id="content">
+          
+      </div>
     </div>
   );
 }
