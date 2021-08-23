@@ -8,8 +8,7 @@ export const NavbarAction = styled.button`
   text-align: center;
   padding: .75rem 1rem;
   min-width: 120px;
-  border-radius: 12px;
-  border-bottom: 4px solid rgb(70 70 70);
+  border-radius: 1rem;
   cursor: pointer;
   transition: all .3s;
   &:hover{
