@@ -1,6 +1,6 @@
 import "./Navbar.scss";
 import { NavbarAction} from "./NavbarAction"
-import { GiSittingDog, GiDogHouse } from "react-icons/gi";
+import { GiSittingDog } from "react-icons/gi";
 
 export const Navbar = () => {
     return (
