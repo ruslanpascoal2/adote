@@ -2,22 +2,29 @@ import { useEffect, useState } from "react";
 import "./Filter.scss";
 import { Field, Formik } from 'formik';
 import { BiSearchAlt } from "react-icons/bi"
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 export const Filter = ({ cities }) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [results, setResults] = useState(cities);
+    const [overlayRef, setOverlayRef] = useState(null);
+
 
     useEffect(() => {
         setResults(cities);
     }, [cities])
 
+    useEffect(() => {
+        setOverlayRef(document.getElementById("autocomplete--overlay--filter"));
+    }, [overlayRef])
 
     const toggleOverlay = () => {
         setShowOverlay(!showOverlay);
         if(!showOverlay){
-            disableScroll();
+            disableBodyScroll(overlayRef);
         }
         else{
-            enableScroll();
+            enableBodyScroll(overlayRef);
         }
     }
 
@@ -30,7 +37,7 @@ export const Filter = ({ cities }) => {
     const selectFilter = (city, setFieldValue) => {
         if (!city) {
             setShowOverlay(false);
-            enableScroll();
+            enableBodyScroll(overlayRef);
             return;
         }
         setFieldValue('filter', city.nome, false)
@@ -72,7 +79,7 @@ export const Filter = ({ cities }) => {
                                         type="text"
                                     />
                                 </div>
-                                <div className={`autocomplete-overlay ${showOverlay ? "overlay-in" : "overlay-out"}`}>
+                                <div id="autocomplete--overlay--filter" className={`autocomplete-overlay ${showOverlay ? "overlay-in" : "overlay-out"}`}>
                                     <div className="overlay-content">
                                         <ul>
                                             {results.map(x => <li key={x.id} onMouseDown={(ev) => selectFilter(x, setFieldValue, handleBlur, ev)}>
