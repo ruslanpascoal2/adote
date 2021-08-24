@@ -10,7 +10,7 @@ for (let i = 0; i < 20; i++) {
 export const Feed = () => {
     return (
         <div className="p-10">
-            <h1 className="text-4xl md:text-5xl font-bold">Pets na sua região</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">Pets para adoção na sua região</h1>
             <div className="w-full flex my-4">
                 <button className="ml-auto btn-filter">
                     <MdFilterList className="text-2xl" />
