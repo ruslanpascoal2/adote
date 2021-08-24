@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Filter } from "./components/filter/Filter"
+import { Feed } from "./components/feed/Feed";
+
 import "./Home.scss";
 import axios from "axios";
 
@@ -24,7 +26,6 @@ export const Home = () => {
     useEffect(() => {
     }, [loading])
 
-
     return (
         <div>
             <div className="home-filter">
@@ -39,6 +40,10 @@ export const Home = () => {
                         </div>
                 }
             </div>
+            <div className="container mx-auto">
+                <Feed />
+            </div>
+            
         </div>
     )
 }
