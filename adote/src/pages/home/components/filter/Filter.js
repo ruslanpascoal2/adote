@@ -4,6 +4,10 @@ import { Field, Formik } from 'formik';
 import { BiSearchAlt } from "react-icons/bi"
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+const options = {
+    reserveScrollBarGap: true,
+};
+
 export const Filter = ({ cities }) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [results, setResults] = useState(cities);
@@ -21,7 +25,7 @@ export const Filter = ({ cities }) => {
     const toggleOverlay = () => {
         setShowOverlay(!showOverlay);
         if(!showOverlay){
-            disableBodyScroll(overlayRef);
+            disableBodyScroll(overlayRef, options);
         }
         else{
             enableBodyScroll(overlayRef);

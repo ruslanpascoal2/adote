@@ -3,3 +3,10 @@
     width: 100vw;
     @apply bg-indigo-800 flex items-center justify-center p-10;
 }
+
+@media screen and (max-width: 590px) {
+    .home-filter{
+        height: 200px;
+    }
+    
+}
