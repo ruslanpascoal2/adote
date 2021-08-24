@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './Item.scss'
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
 
 export const Item = () => {
     const [photo, setPhoto] = useState("");
