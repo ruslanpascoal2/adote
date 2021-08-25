@@ -3,3 +3,23 @@
     border: 2px solid rgb(206, 206, 206);
     padding: 0.25rem .5rem;
 }
+
+.filters-section{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 80px; 
+
+
+
+}
+
+@keyframes collapse {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 80px;
+    }
+}
