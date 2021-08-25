@@ -32,6 +32,25 @@ $border-color: #030303;
     width: 500px;
     max-width: 90vw;
     border-radius: 1rem;
+    // border-top-right-radius: 1rem;
+    // border-bottom-right-radius: 1rem;
+    // border-top-left-radius: 1rem;
+    // border-bottom-left-radius: 1rem;
+    &:focus {
+        outline: none;
+    }
+}
+
+.autocomplete-uf-select{
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    width: 100px;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    margin-right: 3px;
     &:focus {
         outline: none;
     }

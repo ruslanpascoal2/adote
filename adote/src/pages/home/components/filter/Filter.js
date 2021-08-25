@@ -2,33 +2,36 @@ import { useEffect, useState } from "react";
 import "./Filter.scss";
 import { Field, Formik } from 'formik';
 import { BiSearchAlt } from "react-icons/bi"
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+// import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useScrollBlock } from "../../../../scripts/hooks/useScrollBlock";
 
-const options = {
-    reserveScrollBarGap: true,
-};
+// const options = {
+//     reserveScrollBarGap: true,
+// };
 
 export const Filter = ({ cities }) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [results, setResults] = useState(cities);
-    const [overlayRef, setOverlayRef] = useState(null);
-
+    // const [overlayRef, setOverlayRef] = useState(null);
+    const [blockScroll, allowScroll] = useScrollBlock();
 
     useEffect(() => {
         setResults(cities);
     }, [cities])
 
-    useEffect(() => {
-        setOverlayRef(document.getElementById("autocomplete--overlay--filter"));
-    }, [overlayRef])
+    // useEffect(() => {
+    //     setOverlayRef(document.getElementById("autocomplete--overlay--filter"));
+    // }, [])
 
     const toggleOverlay = () => {
         setShowOverlay(!showOverlay);
-        if(!showOverlay){
-            disableBodyScroll(overlayRef, options);
+        if (!showOverlay) {
+            // disableBodyScroll(overlayRef, options);
+            blockScroll()
         }
-        else{
-            enableBodyScroll(overlayRef);
+        else {
+            // enableBodyScroll(overlayRef);
+            allowScroll();
         }
     }
 
@@ -41,10 +44,11 @@ export const Filter = ({ cities }) => {
     const selectFilter = (city, setFieldValue) => {
         if (!city) {
             setShowOverlay(false);
-            enableBodyScroll(overlayRef);
+            // enableBodyScroll(overlayRef);
+            allowScroll();
             return;
         }
-        setFieldValue('filter', city.nome, false)
+        setFieldValue('city', city.nome, false)
         setShowOverlay(!showOverlay);
     }
 
@@ -59,7 +63,8 @@ export const Filter = ({ cities }) => {
             <div className="autocomplete">
                 <Formik
                     initialValues={{
-                        filter: ""
+                        city: "",
+                        uf: ""
                     }}
                 >
                     {
@@ -67,9 +72,11 @@ export const Filter = ({ cities }) => {
                             <form>
                                 <div style={{ position: "relative" }}>
                                     <BiSearchAlt className="search-icon text-gray-500" />
+                                    {/* <div className="flex">
+                                    <Field as="select" name="uf" className="autocomplete-uf-select"></Field> */}
                                     <Field className="autocomplete-input"
                                         id="autocomplete--filter"
-                                        name="filter"
+                                        name="city"
                                         autoComplete={'' + Math.random()}
                                         onFocus={toggleOverlay}
                                         onChange={(ev) => {
@@ -82,6 +89,7 @@ export const Filter = ({ cities }) => {
                                         }}
                                         type="text"
                                     />
+                                    {/* </div> */}
                                 </div>
                                 <div id="autocomplete--overlay--filter" className={`autocomplete-overlay ${showOverlay ? "overlay-in" : "overlay-out"}`}>
                                     <div className="overlay-content">
@@ -91,7 +99,7 @@ export const Filter = ({ cities }) => {
                                         </ul>
                                     </div>
                                 </div>
-                                <button  className="submit-btn">
+                                <button className="submit-btn">
                                     Ir
                                 </button>
                             </form>

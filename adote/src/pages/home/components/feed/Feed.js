@@ -8,7 +8,7 @@ for (let i = 0; i < 20; i++) {
     mockao.push({ id: i })
 }
 
-let filtersSectionClasses = "filters-section space-x-3"
+// let filtersSectionClasses = "filters-section space-x-3"
 
 export const Feed = () => {
 
@@ -27,7 +27,7 @@ export const Feed = () => {
                 </button>
             </div>
 
-            {
+            {/* {
                 showFilters ?
                     <div className={filtersSectionClasses}>
                         <div className="flex items-center">
@@ -38,7 +38,7 @@ export const Feed = () => {
                         </div>
                         <div>Qualquer um <input type="checkbox" /></div>
                     </div> : <> </>
-            }
+            } */}
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {
